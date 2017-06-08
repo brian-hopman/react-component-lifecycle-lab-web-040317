@@ -7,16 +7,26 @@ class App extends React.Component {
 
   constructor() {
     super();
-    
+
     this.state = {
       latestTweets: []
     };
   }
 
   // TODO: componentWillMount()
-  // TODO: componentDidMount()
-  // TODO: componentWillUnmount()
 
+  componentWillMount() {
+    this.fetchTweets()
+  }
+  // TODO: componentDidMount()
+  componentDidMount() {
+    this.startInterval()
+  }
+
+  // TODO: componentWillUnmount()
+  componentWillUnmount() {
+    this.cleanUpInterval()
+  }
   startInterval = () => {
     this.interval = setInterval(this.fetchTweets, 2000);
   }
